@@ -1,5 +1,5 @@
 // @name Unlock Collect
-// @param(number) waitBeforeStart=60000
+// @param(number) waitBeforeStart=10000
 // @param(number) groupId=0
 // @step {gameUrl}/game.php?screen=place&mode=scavenge_mass&group={groupId}
 
@@ -14,10 +14,10 @@ function delay(ms) {
 }
 
 async function automate() {
-  await delay(TWA.waitBeforeStart ?? 60000)
+  await delay(TWA.waitBeforeStart ?? 10000)
   while (true) {
     await delay(1000);
-    if ($("a.btn.btn-single-scav")[0]) $("a.btn.btn-single-scav").click();
+    if ($("a.btn.btn-single-scav")[0]) $("a.btn.btn-single-scav")[0].click();
     else break;
   }
 }
