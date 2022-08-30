@@ -1,26 +1,25 @@
 // @name Unlock Collect
-// @name Unlock Collect
 // @param(number) waitBeforeStart=60000
 // @param(number) groupId=0
-// @step {gameUrl}screen=place&mode=scavenge_mass&group={groupId}
-​
+// @step {gameUrl}/game.php?screen=place&mode=scavenge_mass&group={groupId}
+
 $.getScript("https://twscripts.dev/scripts/massUnlockScav.js");
-​
+
 window.alert = function() {
     console.log.apply(console, arguments);
 };
-​
+
 function delay(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
-​
+
 async function automate() {
   await delay(TWA.waitBeforeStart ?? 60000)
   while (true) {
     await delay(1000);
-    if ($("#startMassUnlock")[0]) $("#startMassUnlock").click();
+    if ($("a.btn.btn-single-scav")[0]) $("a.btn.btn-single-scav").click();
     else break;
   }
 }
-​
+
 automate();
