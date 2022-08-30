@@ -15,12 +15,8 @@ function delay(ms) {
 
 async function automate() {
   await delay(TWA.waitBeforeStart ?? 10000)
-  while (true) {
-    await delay(1000);
-    if ($("#startMassUnlock")) $("#startMassUnlock").click();
-    else break;
+    $("#startMassUnlock").click();
     await delay(30000);
   }
-}
 
 automate();
